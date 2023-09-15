@@ -5,6 +5,7 @@ import { Authorized } from "./Authorized"
 import { GameList } from "../components/games/GameList"
 import { GameDetails} from "../components/games/GameDetails"
 import { ControllerList} from "../components/controllers/ControllerList"
+import { ControllerDetails} from "../components/controllers/ControllerDetails"
 
 
 export const ApplicationViews = ({ token, setToken }) => {
@@ -16,7 +17,7 @@ export const ApplicationViews = ({ token, setToken }) => {
                 <Route path="/games" element={<GameList setToken={setToken} />} />
                 <Route path="/games/:gameId" element={<GameDetails setToken={setToken} />} />
                 <Route path="/controllers" element={<ControllerList setToken={setToken} />} />
-
+                <Route path="/controllers/:id" element={<ControllerDetails setToken={setToken} />} />
             </Route>
         </Routes>
     </>
