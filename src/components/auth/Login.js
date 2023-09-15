@@ -19,7 +19,7 @@ export const Login = ({ setToken }) => {
         loginUser(user).then((res) => {
             if ("valid" in res && res.valid) {
                 setToken(res.token);
-                navigate("/posts");
+                navigate("/login");
             } else {
                 setisUnsuccessful(true);
             }
@@ -33,7 +33,7 @@ export const Login = ({ setToken }) => {
                 <p className="subtitle">Please sign in</p>
 
                 <div className="field">
-                    <label className="label">Username</label>
+                    <label className="label">Email</label>
                     <div className="control">
                         <input className="input" type="text" ref={username} />
                     </div>

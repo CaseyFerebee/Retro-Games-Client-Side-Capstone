@@ -8,11 +8,9 @@ export const Register = ({setToken}) => {
   const lastName = useRef()
   const email = useRef()
   const username = useRef()
-  const bio = useRef()
   const password = useRef()
   const verifyPassword = useRef()
   const passwordDialog = useRef()
-  const account_type = useRef();
   const navigate = useNavigate()
 
 
@@ -26,15 +24,13 @@ export const Register = ({setToken}) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
-        bio: bio.current.value,
-        account_type: account_type.current.value
       }
 
       registerUser(newUser)
         .then(res => {
           if ("valid" in res && res.valid) {
             setToken(res.token)
-            navigate("/")
+            navigate("/games")
           }
         })
     } else {
@@ -45,7 +41,7 @@ export const Register = ({setToken}) => {
   return (
     <section className="columns is-centered">
       <form className="column is-two-thirds" onSubmit={handleRegister}>
-      <h1 className="title">Rare Publishing</h1>
+      <h1 className="title">Retro Games</h1>
         <p className="subtitle">Create an account</p>
         <div className="field">
           <label className="label">First Name</label>
@@ -76,16 +72,6 @@ export const Register = ({setToken}) => {
         </div>
 
         <div className="field">
-          <label className="label">Account Type</label>
-        <div className="control">
-          <select className="select" ref={account_type}>
-            <option value="author">Author</option>
-            <option value="reader">Reader</option>
-          </select>
-        </div>
-      </div>
-
-        <div className="field">
           <label className="label">Password</label>
           <div className="field-body">
             <div className="field">
@@ -99,13 +85,6 @@ export const Register = ({setToken}) => {
                 <input className="input" type="password" placeholder="Verify Password" ref={verifyPassword} />
               </p>
             </div>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Bio</label>
-          <div className="control">
-            <textarea className="textarea" placeholder="Tell us about yourself..." ref={bio}></textarea>
           </div>
         </div>
 

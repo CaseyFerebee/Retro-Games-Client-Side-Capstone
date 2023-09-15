@@ -15,7 +15,7 @@ export const NavBar = ({ token, setToken }) => {
   return (
     <nav className="navbar is-success mb-3" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a className="navbar-item" href="/posts">
+        <a className="navbar-item" href="/games">
         </a>
 
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -32,10 +32,10 @@ export const NavBar = ({ token, setToken }) => {
             token
               ? (
                 <>
-                  <Link to="/posts" className="navbar-item">Games</Link>
-                  <Link to="/categories" className="navbar-item">Consoles</Link>
-                  <Link to="/tags" className="navbar-item">Controllers</Link>
-                  <Link to="/users" className="navbar-item">My Collection</Link>
+                  <Link to="/games" className="navbar-item">Games</Link>
+                  <Link to="/consoles" className="navbar-item">Consoles</Link>
+                  <Link to="/contollers" className="navbar-item">Controllers</Link>
+                  <Link to="/colletions" className="navbar-item">My Collection</Link>
                 </>
 
               )
