@@ -1,7 +1,6 @@
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-import Logo from "./rare.jpeg"
 
 export const NavBar = ({ token, setToken }) => {
   const navigate = useNavigate()
@@ -17,7 +16,6 @@ export const NavBar = ({ token, setToken }) => {
     <nav className="navbar is-success mb-3" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="/posts">
-          <img src={Logo} height="3rem" alt="Rare Logo" /> <h1 className="title is-4">Rare Publishing</h1>
         </a>
 
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -34,10 +32,10 @@ export const NavBar = ({ token, setToken }) => {
             token
               ? (
                 <>
-                  <Link to="/posts" className="navbar-item">Posts</Link>
-                  <Link to="/categories" className="navbar-item">Category Management</Link>
-                  <Link to="/tags" className="navbar-item">Tag Management</Link>
-                  <Link to="/users" className="navbar-item">User Profiles</Link>
+                  <Link to="/posts" className="navbar-item">Games</Link>
+                  <Link to="/categories" className="navbar-item">Consoles</Link>
+                  <Link to="/tags" className="navbar-item">Controllers</Link>
+                  <Link to="/users" className="navbar-item">My Collection</Link>
                 </>
 
               )
