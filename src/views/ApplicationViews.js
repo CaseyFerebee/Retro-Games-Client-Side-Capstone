@@ -4,6 +4,7 @@ import { Register } from "../components/auth/Register"
 import { Authorized } from "./Authorized"
 import { GameList } from "../components/games/GameList"
 import { GameDetails} from "../components/games/GameDetails"
+import { ControllerList} from "../components/controllers/ControllerList"
 
 
 export const ApplicationViews = ({ token, setToken }) => {
@@ -14,6 +15,7 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route element={<Authorized token={token}  />}>
                 <Route path="/games" element={<GameList setToken={setToken} />} />
                 <Route path="/games/:gameId" element={<GameDetails setToken={setToken} />} />
+                <Route path="/controllers" element={<ControllerList setToken={setToken} />} />
 
             </Route>
         </Routes>
