@@ -10,7 +10,7 @@ export const getAllConsoles = () => {
 }
 
 export const getSingleConsole = (id) => {
-    return fetch(`http://localhost:8000/console/${id}`, {
+    return fetch(`http://localhost:8000/consoles/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
