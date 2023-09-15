@@ -10,7 +10,7 @@ export const getAllGames = () => {
 }
 
 export const getSingleGame = (gameId) => {
-    return fetch(`http://localhost:8000/game/${gameId}`, {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
