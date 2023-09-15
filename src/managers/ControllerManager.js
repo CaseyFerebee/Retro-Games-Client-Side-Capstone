@@ -10,7 +10,7 @@ export const getAllControllers = () => {
 }
 
 export const getSingleController = (id) => {
-    return fetch(`http://localhost:8000/controller/${id}`, {
+    return fetch(`http://localhost:8000/controllers/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
