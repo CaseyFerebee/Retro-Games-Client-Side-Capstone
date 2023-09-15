@@ -20,7 +20,7 @@ export const GameDetails = () => {
             <div className="game__skill-level">{game.description}</div>
             <div className="game__players-needed">{game.releaseDate}</div>
             <div className="game__creator">{game.publisher}</div>
-            <div className="game__type">{game.developler}</div>
+            <div className="game__type">{game.developer}</div>
             <div className="game__type">{game.modes}</div>
             <div className="game__type">{game.genre?.label}</div>
         </section>

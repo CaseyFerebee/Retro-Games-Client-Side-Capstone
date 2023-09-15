@@ -8,7 +8,7 @@ import { ControllerList} from "../components/controllers/ControllerList"
 import { ControllerDetails} from "../components/controllers/ControllerDetails"
 import { ConsoleList} from "../components/consoles/ConsoleList"
 import { ConsoleDetails } from "../components/consoles/ConsoleDetails"
-
+import { ConsoleCollectionList } from "../components/collections/consoleCollection/ConsoleCollectionList"
 
 export const ApplicationViews = ({ token, setToken }) => {
     return <>
@@ -22,6 +22,7 @@ export const ApplicationViews = ({ token, setToken }) => {
                 <Route path="/controllers/:id" element={<ControllerDetails setToken={setToken} />} />
                 <Route path="/consoles" element={<ConsoleList setToken={setToken} />} />
                 <Route path="/consoles/:id" element={<ConsoleDetails setToken={setToken} />} />
+                <Route path="/consolecollections" element={<ConsoleCollectionList setToken={setToken} />} />
             </Route>
         </Routes>
     </>
