@@ -4,6 +4,7 @@ export const getAllControllers = () => {
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json",
+      "Authorization": `Token ${localStorage.getItem("auth_token")}`
     },
   }).then((res) => res.json());
 }
@@ -14,6 +15,7 @@ export const getSingleController = (id) => {
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json",
+      "Authorization": `Token ${localStorage.getItem("auth_token")}`
     },
   }).then((res) => res.json());
 }
