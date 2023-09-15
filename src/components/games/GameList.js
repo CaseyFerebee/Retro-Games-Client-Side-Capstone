@@ -25,7 +25,6 @@ export const GameList = () => {
               <div className="title"><Link to={`/games/${gameObject.id}`} key={gameObject.id}>{gameObject.title}</Link></div>
               <section className="" >
                 <img src={gameObject.img} alt={gameObject.title} />
-                <div>{gameObject.deveopler}</div>
               </section>
             </div>
           })}

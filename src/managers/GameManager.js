@@ -9,8 +9,8 @@ export const getAllGames = () => {
   }).then((res) => res.json());
 }
 
-export const getSingleGame = (id) => {
-    return fetch(`http://localhost:8000/game/${id}`, {
+export const getSingleGame = (gameId) => {
+    return fetch(`http://localhost:8000/game/${gameId}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
