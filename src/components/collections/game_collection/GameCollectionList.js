@@ -16,12 +16,12 @@ export const GameCollectionList = () => {
 
     return (
         <div className="container">
-            <h1 className="game-collection-title">game Collection</h1>
+            <h1 className="game-collection-title">Game Collection</h1>
             <article className="">
                 {gameCollections.map(
                     (gameObject) => {
                         return <div className="game" key={gameObject.id}  >
-                            <div className="title"><Link to={`/games/${gameObject?.game?.id}`} key={gameObject.id}>{gameObject?.game?.title}</Link></div>
+                            <div className="title"><Link to={`/gamecollections/${gameObject?.game?.id}`} key={gameObject.id}>{gameObject?.game?.title}</Link></div>
                             <section className="" >
                                 <img src={gameObject?.game?.img} alt={gameObject?.game?.name} />
                             </section>

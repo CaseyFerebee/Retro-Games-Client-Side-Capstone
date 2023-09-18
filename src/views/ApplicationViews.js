@@ -11,6 +11,9 @@ import { ConsoleDetails } from "../components/consoles/ConsoleDetails"
 import { ConsoleCollectionList } from "../components/collections/consoleCollection/ConsoleCollectionList"
 import { ControllerCollectionList } from "../components/collections/controller_collection/ControllerCollectionList"
 import { GameCollectionList } from "../components/collections/game_collection/GameCollectionList"
+import { GameCollectionForm } from "../components/collections/game_collection/GameCollectionForm"
+import { GameCollectionDetails } from "../components/collections/game_collection/GameCollectionDetails"
+
 
 export const ApplicationViews = ({ token, setToken }) => {
     return <>
@@ -27,6 +30,8 @@ export const ApplicationViews = ({ token, setToken }) => {
                 <Route path="/consolecollections" element={<ConsoleCollectionList setToken={setToken} />} />
                 <Route path="/controllercollections" element={<ControllerCollectionList setToken={setToken} />} />
                 <Route path="/gamecollections" element={<GameCollectionList setToken={setToken} />} />
+                <Route path="/gamecollections/:gameId/create" element={<GameCollectionForm setToken={setToken} />} />
+                <Route path="/gamecollections/:ownerGameId" element={<GameCollectionDetails setToken={setToken} />} />
             </Route>
         </Routes>
     </>
