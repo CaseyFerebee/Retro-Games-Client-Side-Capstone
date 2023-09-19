@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllConditions } from "../../../managers/ConditionManager";
-import { getControllerCollectionById, updateControllerCollection } from "../../../managers/ControllerCollectionManager";
+import { getConsoleCollectionById, updateConsoleCollection } from "../../../managers/ConsoleCollectionManager";
 
-export const ControllerCollectionUpdateForm = () => {
+export const ConsoleCollectionUpdateForm = () => {
     const navigate = useNavigate();
     const { collectionId } = useParams()
-    const [controllerData, setControllerData] = useState([]);
+    const [consoleData, setConsoleData] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState("");
     const [conditions, setConditions] = useState([]);
 
     useEffect(() => {
-        getControllerCollectionById(collectionId)
+        getConsoleCollectionById(collectionId)
         .then((response) => {
-            setControllerData(response);
+            setConsoleData(response);
             setSelectedCondition(response?.condition?.label)
         })
         
@@ -31,25 +31,25 @@ export const ControllerCollectionUpdateForm = () => {
         e.preventDefault();
 
 
-        const updateController = {
+        const updateConsole = {
             condition: parseInt(selectedCondition, 10),
         };
 
-        updateControllerCollection(collectionId, updateController)
+        updateConsoleCollection(collectionId, updateConsole)
             .then(() => {
-                navigate(`/controllercollections/${collectionId}`);
+                navigate(`/consolecollections/${collectionId}`);
             })
     };
 
     return (
         <div>
-                <div key={controllerData.id}>
+                <div key={consoleData.id}>
                     <h1>Edit Controller Collection</h1>
                     <form onSubmit={handleSubmit}>
-                    <img src={controllerData?.controller?.img} alt={controllerData?.controller?.name} />
-                        <p>Title: {controllerData?.controller?.name}</p>
-                        <p>Title: {controllerData?.controller?.description}</p>
-                        <p>Title: {controllerData?.controller?.releaseDate}</p>
+                    <img src={consoleData?.console?.img} alt={consoleData?.console?.name} />
+                        <p>Title: {consoleData?.console?.name}</p>
+                        <p>Title: {consoleData?.console?.description}</p>
+                        <p>Title: {consoleData?.console?.releaseDate}</p>
                         <label>
                             Condition:
                             <select

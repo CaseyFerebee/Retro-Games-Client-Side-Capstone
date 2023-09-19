@@ -21,7 +21,7 @@ export const ConsoleCollectionList = () => {
         {consoleCollections.map(
           (consoleObject) => {
             return <div className="console" key={consoleObject.id}  >
-              <div className="title"><Link to={`/consoles/${consoleObject?.console?.id}`} key={consoleObject.id}>{consoleObject?.console?.name}</Link></div>
+              <div className="title"><Link to={`/consolecollections/${consoleObject.id}`} key={consoleObject.id}>{consoleObject?.console?.name}</Link></div>
               <section className="" >
                 <img src={consoleObject?.console?.img} alt={consoleObject?.console?.name} />
               </section>

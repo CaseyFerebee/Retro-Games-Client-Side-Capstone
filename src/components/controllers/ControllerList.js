@@ -2,11 +2,9 @@ import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import { getAllControllers } from "../../managers/ControllerManager"
 
-
 export const ControllerList = () => {
 
   const [controllers, setController] = useState([])
-
 
   useEffect(
     () => {
