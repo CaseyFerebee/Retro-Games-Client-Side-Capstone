@@ -17,6 +17,9 @@ import { GameCollectionUpdateForm } from "../components/collections/game_collect
 import { ControllerCollectionForm } from "../components/collections/controller_collection/ControllerCollectionForm"
 import { ControllerCollectionDetails } from "../components/collections/controller_collection/ControllerCollectionDetails"
 import { ControllerCollectionUpdateForm } from "../components/collections/controller_collection/ControllerCollectionEditForm"
+import { ConsoleCollectionDetails } from "../components/collections/consoleCollection/ConsoleCollectionDetails"
+import { ConsoleCollectionForm } from "../components/collections/consoleCollection/ConsoleCollectionForm"
+import { ConsoleCollectionUpdateForm } from "../components/collections/consoleCollection/ConsoleCollectionEditForm"
 
 
 export const ApplicationViews = ({ token, setToken }) => {
@@ -32,6 +35,9 @@ export const ApplicationViews = ({ token, setToken }) => {
                 <Route path="/consoles" element={<ConsoleList setToken={setToken} />} />
                 <Route path="/consoles/:id" element={<ConsoleDetails setToken={setToken} />} />
                 <Route path="/consolecollections" element={<ConsoleCollectionList setToken={setToken} />} />
+                <Route path="/consolecollections/:collectionId" element={<ConsoleCollectionDetails setToken={setToken} />} />
+                <Route path="/consolecollections/create" element={<ConsoleCollectionForm setToken={setToken} />} />
+                <Route path="/consolecollections/:collectionId/edit" element={<ConsoleCollectionUpdateForm setToken={setToken} />} />
                 <Route path="/controllercollections" element={<ControllerCollectionList setToken={setToken} />} />
                 <Route path="/controllercollections/:collectionId" element={<ControllerCollectionDetails setToken={setToken} />} />
                 <Route path="/controllercollections/create" element={<ControllerCollectionForm setToken={setToken} />} />

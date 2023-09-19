@@ -54,3 +54,13 @@ export const updateConsoleCollection = (collectionId, updateConsoleCollection) =
       body: JSON.stringify(updateConsoleCollection)
   })
 }
+
+export const deleteConsoleCollectionById = (collectionId) => {
+  return fetch(`http://localhost:8000/controllercollections/${collectionId}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${localStorage.getItem("auth_token")}`,
+      },
+  })
+};
