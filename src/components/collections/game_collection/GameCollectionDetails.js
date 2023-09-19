@@ -1,33 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
-import { getCurrentOwnerGameCollectionGameId } from "../../../managers/GameCollectionManager";
+import { useParams, useNavigate } from "react-router-dom";
+import { deleteGameCollectionById, getGameCollectionById } from "../../../managers/GameCollectionManager";
 
 
 export const GameCollectionDetails = () => {
-    const [ownerGame, setOwnerGame] = useState([]);
-    const { ownerGameId } = useParams();
+    const [collectionGame, setCollectionGame] = useState([]);
+    const { collectionId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        getCurrentOwnerGameCollectionGameId(ownerGameId).then(setOwnerGame);
-    }, [ownerGameId]);
+        getGameCollectionById(collectionId).then(setCollectionGame);
+    }, [collectionId]);
 
+    const handleDelete = () => {
+        deleteGameCollectionById(collectionId)
+            .then(() => {
+                navigate(`/gamecollections`);
+            })
+    }
 
     return (
         <div>
-            {ownerGame.map((item) => (
-                <section className="game" key={item.id}>
-                    <img src={item?.game.img} alt={item?.game.title} />
-                    <h3 className="game__title">{item?.game.title}</h3>
-                    <div className="game__skill-level">{item?.game.description}</div>
-                    <div className="game__players-needed">{item?.game.releaseDate}</div>
-                    <div className="game__creator">{item?.game.publisher}</div>
-                    <div className="game__type">{item?.game.developer}</div>
-                    <div className="game__type">{item?.game.modes}</div>
-                    <div className="game__type">{item?.condition?.label}</div>
+            <section className="game">
+                <img src={collectionGame?.game?.img} alt={collectionGame?.game?.title} />
+                <h3 className="game__title">{collectionGame?.game?.title}</h3>
+                <div className="game__skill-level">{collectionGame?.game?.description}</div>
+                <div className="game__players-needed">{collectionGame?.game?.releaseDate}</div>
+                <div className="game__creator">{collectionGame?.game?.publisher}</div>
+                <div className="game__type">{collectionGame?.game?.developer}</div>
+                <div className="game__type">{collectionGame?.game?.modes}</div>
+                <div className="game__type">{collectionGame?.condition?.label}</div>
+            </section>
+            <button onClick={() => { navigate(`/gamecollections/${collectionId}/edit`); }}>Edit</button>
+            <button onClick={() => {handleDelete()}}>Delete</button>
 
-                </section>
-            ))}
         </div>
     );
-
 };
+
+

@@ -31,7 +31,6 @@ export const GameCollectionForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
         const createGameCollection = {
             game: parseInt(gameData.id, 10),
             condition: parseInt(selectedCondition, 10),
@@ -39,7 +38,7 @@ export const GameCollectionForm = () => {
 
         addGameCollection(createGameCollection)
             .then(() => {
-                navigate(`/gamecollections/${gameData.id}`);
+                navigate(`/gamecollections`);
             })
     };
 
@@ -63,7 +62,6 @@ export const GameCollectionForm = () => {
                         required
                     >
                         <option value="">Select a condition</option>
-                        {/* Map through your conditions data */}
                         {conditions.map((condition) => (
                             <option key={condition.id} value={condition.id}>
                                 {condition.label}

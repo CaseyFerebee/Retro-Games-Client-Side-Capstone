@@ -21,7 +21,7 @@ export const GameCollectionList = () => {
                 {gameCollections.map(
                     (gameObject) => {
                         return <div className="game" key={gameObject.id}  >
-                            <div className="title"><Link to={`/gamecollections/${gameObject?.game?.id}`} key={gameObject.id}>{gameObject?.game?.title}</Link></div>
+                            <div className="title"><Link to={`/gamecollections/${gameObject.id}`} key={gameObject.id}>{gameObject?.game?.title}</Link></div>
                             <section className="" >
                                 <img src={gameObject?.game?.img} alt={gameObject?.game?.name} />
                             </section>

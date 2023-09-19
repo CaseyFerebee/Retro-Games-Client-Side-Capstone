@@ -30,7 +30,7 @@ export const Register = ({setToken}) => {
         .then(res => {
           if ("valid" in res && res.valid) {
             setToken(res.token)
-            navigate("/games")
+            navigate("/login")
           }
         })
     } else {

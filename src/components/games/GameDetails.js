@@ -7,14 +7,13 @@ export const GameDetails = () => {
     const [game, setGame] = useState({});
     const { gameId } = useParams();
     const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
         getSingleGame(gameId).then(setGame);
     }, [gameId]);
 
     const handleAddToCollection = () => {
-        navigate("/gamecollections/:gameId/create", { state: { gameId: gameId } });
+        navigate("/gamecollections/create", { state: { gameId: gameId } });
     };
 
     return (
