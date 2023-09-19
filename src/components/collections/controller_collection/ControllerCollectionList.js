@@ -21,7 +21,7 @@ export const ControllerCollectionList = () => {
                 {controllerCollections.map(
                     (controllerObject) => {
                         return <div className="controller" key={controllerObject.id}  >
-                            <div className="title"><Link to={`/controllers/${controllerObject.id}`} key={controllerObject.id}>{controllerObject?.controller?.name}</Link></div>
+                            <div className="title"><Link to={`/controllercollections/${controllerObject.id}`} key={controllerObject.id}>{controllerObject?.controller?.name}</Link></div>
                             <section className="" >
                                 <img src={controllerObject?.controller?.img} alt={controllerObject?.controller?.name} />
                             </section>

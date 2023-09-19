@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { deleteControllerCollectionById, getControllerCollectionById } from "../../../managers/ControllerCollectionManager";
 
 
-export const GameCollectionDetails = () => {
+export const ControllerCollectionDetails = () => {
     const [collectionController, setCollectionController] = useState([]);
     const { collectionId } = useParams();
     const navigate = useNavigate();
@@ -26,9 +26,10 @@ export const GameCollectionDetails = () => {
                 <h3 className="game__title">{collectionController?.controller?.name}</h3>
                 <div className="game__skill-level">{collectionController?.controller?.description}</div>
                 <div className="game__players-needed">{collectionController?.controller?.releaseDate}</div>
+                <div className="game__type">{collectionController?.condition?.label}</div>
             </section>
+            <button onClick={() => { navigate(`/controllercollections/${collectionId}/edit`); }}>Edit</button>
             <button onClick={() => {handleDelete()}}>Delete</button>
-
         </div>
     );
 };
