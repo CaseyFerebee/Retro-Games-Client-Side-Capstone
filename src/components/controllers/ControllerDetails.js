@@ -12,13 +12,23 @@ export const ControllerDetails = () => {
         getSingleController(id).then(setController);
     }, [id]);
 
+    const handleAddToCollection = () => {
+        navigate("/controllercollections/create", { state: { id: id } });
+    };
 
     return (
+    <div>
         <section className="controllers">
             <img src={controller.img} alt={controller.name} />
             <h3 className="controller__name">{controller.name}</h3>
             <div className="controller__releaseDate">{controller.releaseDate}</div>
             <div className="controller__description">{controller.description}</div>
         </section>
+        <button className="add-game-button" onClick={handleAddToCollection}>
+                Add Controller to Collection
+            </button>
+
+    </div>
+        
     );
 };
