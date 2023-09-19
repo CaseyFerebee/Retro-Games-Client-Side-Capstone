@@ -56,7 +56,7 @@ export const updateConsoleCollection = (collectionId, updateConsoleCollection) =
 }
 
 export const deleteConsoleCollectionById = (collectionId) => {
-  return fetch(`http://localhost:8000/controllercollections/${collectionId}`, {
+  return fetch(`http://localhost:8000/consolecollections/${collectionId}`, {
       method: "DELETE",
       headers: {
           "Content-Type": "application/json",

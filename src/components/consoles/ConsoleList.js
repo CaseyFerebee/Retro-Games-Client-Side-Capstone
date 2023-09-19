@@ -2,11 +2,9 @@ import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import { getAllConsoles } from "../../managers/ConsoleManager"
 
-
 export const ConsoleList = () => {
 
   const [consoles, setConsole] = useState([])
-
 
   useEffect(
     () => {

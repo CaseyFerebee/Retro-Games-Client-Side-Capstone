@@ -46,10 +46,10 @@ export const ConsoleCollectionUpdateForm = () => {
                 <div key={consoleData.id}>
                     <h1>Edit Controller Collection</h1>
                     <form onSubmit={handleSubmit}>
-                    <img src={consoleData?.console.img} alt={consoleData?.console.name} />
-                        <p>Title: {consoleData?.console.name}</p>
-                        <p>Title: {consoleData?.console.description}</p>
-                        <p>Title: {consoleData?.console.releaseDate}</p>
+                    <img src={consoleData?.console?.img} alt={consoleData?.console?.name} />
+                        <p>Title: {consoleData?.console?.name}</p>
+                        <p>Title: {consoleData?.console?.description}</p>
+                        <p>Title: {consoleData?.console?.releaseDate}</p>
                         <label>
                             Condition:
                             <select
