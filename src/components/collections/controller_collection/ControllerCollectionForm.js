@@ -17,7 +17,7 @@ export const ControllerCollectionForm = () => {
         .then((response) => {
             setControllerData(response);
         })
-        
+
         getAllConditions()
         .then((response) => {
             setConditions(response); 

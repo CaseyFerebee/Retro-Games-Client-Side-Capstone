@@ -30,3 +30,27 @@ export const getCurrentOwnerConsoleCollection = () => {
   },
 }).then((res) => res.json());
 }
+
+export const addConsoleCollection = (newConsoleCollection) => {
+  return fetch(`http://localhost:8000/consolecollections`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": `Token ${localStorage.getItem("auth_token")}`
+      },
+      body: JSON.stringify(newConsoleCollection)
+  }).then((res) => res.json());
+}
+
+export const updateConsoleCollection = (collectionId, updateConsoleCollection) => {
+  return fetch(`http://localhost:8000/consolecollections/${collectionId}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": `Token ${localStorage.getItem("auth_token")}`
+      },
+      body: JSON.stringify(updateConsoleCollection)
+  })
+}
