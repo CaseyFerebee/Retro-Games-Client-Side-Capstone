@@ -10,7 +10,6 @@ export const Register = ({setToken}) => {
   const username = useRef()
   const password = useRef()
   const verifyPassword = useRef()
-  const passwordDialog = useRef()
   const navigate = useNavigate()
 
 
@@ -30,11 +29,10 @@ export const Register = ({setToken}) => {
         .then(res => {
           if ("valid" in res && res.valid) {
             setToken(res.token)
-            navigate("/login")
           }
+            navigate("/login")
         })
     } else {
-      passwordDialog.current.showModal()
     }
   }
 

@@ -16,12 +16,12 @@ export const ControllerCollectionList = () => {
 
     return (
         <div className="container">
-            <h1 className="controller-collection-title">controller Collection</h1>
+            <h1 className="controller-collection-title">Controller Collection</h1>
             <article className="">
                 {controllerCollections.map(
                     (controllerObject) => {
                         return <div className="controller" key={controllerObject.id}  >
-                            <div className="title"><Link to={`/controllers/${controllerObject?.controller?.id}`} key={controllerObject.id}>{controllerObject?.controller?.name}</Link></div>
+                            <div className="title"><Link to={`/controllers/${controllerObject.id}`} key={controllerObject.id}>{controllerObject?.controller?.name}</Link></div>
                             <section className="" >
                                 <img src={controllerObject?.controller?.img} alt={controllerObject?.controller?.name} />
                             </section>
