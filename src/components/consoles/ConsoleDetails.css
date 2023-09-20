@@ -1,0 +1,27 @@
+.hero.is-primary {
+    background-color: red;
+  }
+  
+  .console-image.is-large {
+    width: 500px;
+    height: 400px
+  }
+  
+  .title.is-1,
+  .subtitle {
+    text-align: center;
+  }
+  
+  .tags.is-centered {
+    text-align: center;
+  }
+  
+  .add-console-button {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .hero.is-medium.is-primary {
+    background-color: red;
+    /* Add your desired red color here */
+  }

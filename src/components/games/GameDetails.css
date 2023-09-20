@@ -3,10 +3,8 @@
 }
 
 .game-image.is-large {
-  max-width: 80%;
-  /* Adjust the image width as needed */
-  display: block;
-  margin: 0 auto;
+  width: 500px;
+  height: 400px
 }
 
 .title.is-1,

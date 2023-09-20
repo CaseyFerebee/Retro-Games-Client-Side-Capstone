@@ -25,6 +25,7 @@ export const GameDetails = () => {
               src={game.img}
               alt={game.title}
               className="game-image is-large"
+              style={{ maxWidth: "500px" }}
             />
             <h1 className="title is-1">{game.title}</h1>
             <p className="subtitle">{game.description}</p>
