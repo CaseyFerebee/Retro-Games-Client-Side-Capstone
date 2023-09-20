@@ -5,7 +5,7 @@ import { getControllerCollectionById, updateControllerCollection } from "../../.
 
 export const ControllerCollectionUpdateForm = () => {
     const navigate = useNavigate();
-    const { collectionId } = useParams()
+    const { collectionId } = useParams();
     const [controllerData, setControllerData] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState("");
     const [conditions, setConditions] = useState([]);
@@ -30,7 +30,6 @@ export const ControllerCollectionUpdateForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
         const updateController = {
             condition: parseInt(selectedCondition, 10),
         };
@@ -42,32 +41,55 @@ export const ControllerCollectionUpdateForm = () => {
     };
 
     return (
-        <div>
-                <div key={controllerData.id}>
-                    <h1>Edit Controller Collection</h1>
-                    <form onSubmit={handleSubmit}>
-                    <img src={controllerData?.controller?.img} alt={controllerData?.controller?.name} />
-                        <p>Title: {controllerData?.controller?.name}</p>
-                        <p>Title: {controllerData?.controller?.description}</p>
-                        <p>Title: {controllerData?.controller?.releaseDate}</p>
-                        <label>
-                            Condition:
-                            <select
-                                value={selectedCondition}
-                                onChange={handleConditionChange}
-                                required
-                            >
-                                <option value="">Select a condition</option>
-                                {conditions.map((condition) => (
-                                    <option key={condition.id} value={condition.id}>
-                                        {condition.label}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
-                        <button type="submit">Submit</button>
-                    </form>
+        <div className="container">
+            <section className="hero is-medium is-primary">
+                <div className="hero-body">
+                    <div className="container has-text-centered">
+                        <img
+                            src={controllerData?.controller?.img}
+                            alt={controllerData?.controller?.name}
+                            className="game-image is-large"
+                        />
+                        <h1 className="title is-1">Edit Controller Collection</h1>
+                        <form onSubmit={handleSubmit}>
+                            <div className="content">
+                                <p className="subtitle">Controller Name: {controllerData?.controller?.name}</p>
+                                <p>Description: {controllerData?.controller?.description}</p>
+                                <p>Release Date: {controllerData?.controller?.releaseDate}</p>
+                            </div>
+                            <div className="field">
+                                <label className="label">Edit Condition of Controller:</label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select
+                                            value={selectedCondition}
+                                            onChange={handleConditionChange}
+                                            required
+                                        >
+                                            <option value="">Select a condition</option>
+                                            {conditions.map((condition) => (
+                                                <option key={condition.id} value={condition.id}>
+                                                    {condition.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <div className="control">
+                                    <button
+                                        type="submit"
+                                        className="button is-info is-fullwidth add-game-button"
+                                    >
+                                        Update Controller Collection
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </section>
         </div>
     );
 };

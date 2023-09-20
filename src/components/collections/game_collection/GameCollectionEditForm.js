@@ -5,7 +5,7 @@ import { getAllConditions } from "../../../managers/ConditionManager";
 
 export const GameCollectionUpdateForm = () => {
     const navigate = useNavigate();
-    const { collectionId } = useParams()
+    const { collectionId } = useParams();
     const [gameData, setGameData] = useState([]);
     const [selectedCondition, setSelectedCondition] = useState("");
     const [conditions, setConditions] = useState([]);
@@ -30,7 +30,6 @@ export const GameCollectionUpdateForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
         const updateGame = {
             condition: parseInt(selectedCondition, 10),
         };
@@ -42,35 +41,58 @@ export const GameCollectionUpdateForm = () => {
     };
 
     return (
-        <div>
-                <div key={gameData.id}>
-                    <h1>Edit Game Collection</h1>
-                    <form onSubmit={handleSubmit}>
-                        <img src={gameData.game?.img} alt={gameData.game?.title} />
-                        <p>Title: {gameData.game?.title}</p>
-                        <p>Description: {gameData.game?.description}</p>
-                        <p>Release Date: {gameData.game?.releaseDate}</p>
-                        <p>Publisher: {gameData.game?.publisher}</p>
-                        <p>Developer: {gameData.game?.developer}</p>
-                        <p>Modes: {gameData.game?.modes}</p>
-                        <label>
-                            Condition:
-                            <select
-                                value={selectedCondition}
-                                onChange={handleConditionChange}
-                                required
-                            >
-                                <option value="">Select a condition</option>
-                                {conditions.map((condition) => (
-                                    <option key={condition.id} value={condition.id}>
-                                        {condition.label}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
-                        <button type="submit">Submit</button>
-                    </form>
+        <div className="container">
+            <section className="hero is-medium is-primary">
+                <div className="hero-body">
+                    <div className="container has-text-centered">
+                        <img
+                            src={gameData.game?.img}
+                            alt={gameData.game?.title}
+                            className="game-image is-large"
+                        />
+                        <h1 className="title is-1">Edit Game Collection</h1>
+                        <form onSubmit={handleSubmit}>
+                            <div className="content">
+                                <p className="subtitle">Title: {gameData.game?.title}</p>
+                                <p>Description: {gameData.game?.description}</p>
+                                <p>Release Date: {gameData.game?.releaseDate}</p>
+                                <p>Publisher: {gameData.game?.publisher}</p>
+                                <p>Developer: {gameData.game?.developer}</p>
+                                <p>Modes: {gameData.game?.modes}</p>
+                            </div>
+                            <div className="field">
+                                <label className="label">Condition:</label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select
+                                            value={selectedCondition}
+                                            onChange={handleConditionChange}
+                                            required
+                                        >
+                                            <option value="">Select a condition</option>
+                                            {conditions.map((condition) => (
+                                                <option key={condition.id} value={condition.id}>
+                                                    {condition.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <div className="control">
+                                    <button
+                                        type="submit"
+                                        className="button is-info is-fullwidth add-game-button"
+                                    >
+                                        Update Game Collection
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </section>
         </div>
     );
 };

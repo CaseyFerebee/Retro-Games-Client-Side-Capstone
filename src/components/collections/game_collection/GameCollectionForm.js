@@ -7,22 +7,20 @@ import { getAllConditions } from "../../../managers/ConditionManager";
 export const GameCollectionForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { gameId } = location.state; 
+    const { gameId } = location.state;
     const [gameData, setGameData] = useState({});
     const [selectedCondition, setSelectedCondition] = useState("");
     const [conditions, setConditions] = useState([]);
 
     useEffect(() => {
-        getSingleGame(gameId)
-        .then((response) => {
+        getSingleGame(gameId).then((response) => {
             setGameData(response);
-        })
-        
-        getAllConditions()
-        .then((response) => {
-            setConditions(response); 
-        })
-        }, [gameId]);
+        });
+
+        getAllConditions().then((response) => {
+            setConditions(response);
+        });
+    }, [gameId]);
 
     const handleConditionChange = (e) => {
         setSelectedCondition(e.target.value);
@@ -36,41 +34,78 @@ export const GameCollectionForm = () => {
             condition: parseInt(selectedCondition, 10),
         };
 
-        addGameCollection(createGameCollection)
-            .then(() => {
-                navigate(`/gamecollections`);
-            })
+        addGameCollection(createGameCollection).then(() => {
+            navigate(`/gamecollections`);
+        });
     };
 
     return (
-        <div>
-            <h1>Edit Game Collection</h1>
-            <form onSubmit={handleSubmit}>
-            <img src={gameData.img} alt={gameData.title} />
-                <p>Title: {gameData.title}</p>
-                <p>Title: {gameData.description}</p>
-                <p>Title: {gameData.releaseDate}</p>
-                <p>Title: {gameData.publisher}</p>
-                <p>Title: {gameData.developer}</p>
-                <p>Title: {gameData.modes}</p>
-                <p>Title: {gameData.genre?.label}</p>
-                <label>
-                    Condition:
-                    <select
-                        value={selectedCondition}
-                        onChange={handleConditionChange}
-                        required
-                    >
-                        <option value="">Select a condition</option>
-                        {conditions.map((condition) => (
-                            <option key={condition.id} value={condition.id}>
-                                {condition.label}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-                <button type="submit">Submit</button>
-            </form>
+        <div className="container">
+            <section className="hero is-medium is-primary">
+                <div className="hero-body">
+                    <div className="container has-text-centered">
+                        <img
+                            src={gameData.img}
+                            alt={gameData.title}
+                            className="game-image is-large"
+                        />
+                        <h1 className="title is-1">{gameData.title}</h1>
+                        <p className="subtitle">{gameData.description}</p>
+                        <div className="columns">
+                            <div className="column">
+                                <p>
+                                    <strong>Release Date:</strong> {gameData.releaseDate}
+                                </p>
+                            </div>
+                            <div className="column">
+                                <p>
+                                    <strong>Publisher:</strong> {gameData.publisher}
+                                </p>
+                            </div>
+                            <div className="column">
+                                <p>
+                                    <strong>Developer:</strong> {gameData.developer}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="tags is-centered">
+                            <span className="tag is-info">{gameData.modes}</span>
+                            <span className="tag is-success">{gameData.genre?.label}</span>
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <div className="field">
+                                <label className="label">Condition of Game:</label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select
+                                            value={selectedCondition}
+                                            onChange={handleConditionChange}
+                                            required
+                                        >
+                                            <option value="">Select a condition</option>
+                                            {conditions.map((condition) => (
+                                                <option key={condition.id} value={condition.id}>
+                                                    {condition.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="field">
+                                <div className="control">
+                                    <button
+                                        type="submit"
+                                        className="button is-info is-fullwidth add-game-button"
+                                    >
+                                        Add this wonderful game to your collection
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
