@@ -18,7 +18,7 @@ export const ControllerDetails = () => {
   
     return (
       <div className="container">
-        <section className="hero is-medium is-primary">
+        <section className="hero is-medium" style={{ backgroundColor: 'black' }}>
           <div className="hero-body">
             <div className="container has-text-centered">
               <img
@@ -27,12 +27,12 @@ export const ControllerDetails = () => {
                 className="controller-image is-large"
                 style={{ maxWidth: "500px" }}
               />
-              <h1 className="title is-1">{controller.name}</h1>
-              <p className="subtitle">{controller.description}</p>
+              <h1 className="title is-1 has-text-white">{controller.name}</h1>
+              <p className="subtitle has-text-white">{controller.description}</p>
               <div className="columns">
-                <div className="column">
+                <div className="column has-text-white">
                   <p>
-                    <strong>Release Date:</strong> {controller.releaseDate}
+                    <strong className="has-text-white">Release Date:</strong> {controller.releaseDate}
                   </p>
                 </div>
               </div>

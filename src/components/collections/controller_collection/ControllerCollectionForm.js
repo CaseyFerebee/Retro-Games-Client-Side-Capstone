@@ -35,13 +35,14 @@ export const ControllerCollectionForm = () => {
         };
 
         addControllerCollection(createControllerCollection).then(() => {
+            window.alert("Controller added to your collection successfully");
             navigate(`/controllercollections`);
         });
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: 'black' }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -49,10 +50,10 @@ export const ControllerCollectionForm = () => {
                             alt={controllerData.name}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">{controllerData.name}</h1>
-                        <p className="subtitle">{controllerData.description}</p>
+                        <h1 className="title is-1 has-text-white">{controllerData.name}</h1>
+                        <p className="subtitle has-text-white">{controllerData.description}</p>
                         <div className="field">
-                            <label className="label">Condition of Controller:</label>
+                            <label className="label has-text-white">Condition of Controller:</label>
                             <div className="control">
                                 <div className="select">
                                     <select

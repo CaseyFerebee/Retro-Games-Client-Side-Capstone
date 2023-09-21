@@ -35,13 +35,14 @@ export const GameCollectionForm = () => {
         };
 
         addGameCollection(createGameCollection).then(() => {
+            window.alert("Game added to your collection successfully");
             navigate(`/gamecollections`);
         });
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: 'black' }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -49,32 +50,32 @@ export const GameCollectionForm = () => {
                             alt={gameData.title}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">{gameData.title}</h1>
-                        <p className="subtitle">{gameData.description}</p>
+                        <h1 className="title is-1 has-text-white">{gameData.title}</h1>
+                        <p className="subtitle has-text-white">{gameData.description}</p>
                         <div className="columns">
-                            <div className="column">
+                            <div className="column has-text-white">
                                 <p>
-                                    <strong>Release Date:</strong> {gameData.releaseDate}
+                                    <strong className="has-text-white">Release Date:</strong> {gameData.releaseDate}
                                 </p>
                             </div>
-                            <div className="column">
+                            <div className="column has-text-white">
                                 <p>
-                                    <strong>Publisher:</strong> {gameData.publisher}
+                                    <strong className="has-text-white">Publisher:</strong> {gameData.publisher}
                                 </p>
                             </div>
-                            <div className="column">
+                            <div className="column has-text-white">
                                 <p>
-                                    <strong>Developer:</strong> {gameData.developer}
+                                    <strong className="has-text-white">Developer:</strong> {gameData.developer}
                                 </p>
                             </div>
                         </div>
-                        <div className="tags is-centered">
-                            <span className="tag is-info">{gameData.modes}</span>
-                            <span className="tag is-success">{gameData.genre?.label}</span>
+                        <div className="tags is-centered" style={{ marginTop: '10px' }}>
+                            <span className="tag is-info" style={{ marginRight: '295px' }}>Modes: {gameData.modes}</span>
+                            <span className="tag is-success" style={{ marginRight: '10px' }}>Genre: {gameData.genre?.label}</span>
                         </div>
                         <form onSubmit={handleSubmit}>
                             <div className="field">
-                                <label className="label">Condition of Game:</label>
+                                <label className="label  has-text-white">Condition of Game:</label>
                                 <div className="control">
                                     <div className="select">
                                         <select

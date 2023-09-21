@@ -36,13 +36,14 @@ export const ControllerCollectionUpdateForm = () => {
 
         updateControllerCollection(collectionId, updateController)
             .then(() => {
+                window.alert("Controller collection updated successfully");
                 navigate(`/controllercollections/${collectionId}`);
             })
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: 'black' }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -50,15 +51,15 @@ export const ControllerCollectionUpdateForm = () => {
                             alt={controllerData?.controller?.name}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">Edit Controller Collection</h1>
+                        <h1 className="title is-1  has-text-white">Edit Controller Collection</h1>
+                        <div className="content">
+                            <p className="subtitle  has-text-white">Controller Name: {controllerData?.controller?.name}</p>
+                            <p className="has-text-white">Description: {controllerData?.controller?.description}</p>
+                            <p className="has-text-white">Release Date: {controllerData?.controller?.releaseDate}</p>
+                        </div>
                         <form onSubmit={handleSubmit}>
-                            <div className="content">
-                                <p className="subtitle">Controller Name: {controllerData?.controller?.name}</p>
-                                <p>Description: {controllerData?.controller?.description}</p>
-                                <p>Release Date: {controllerData?.controller?.releaseDate}</p>
-                            </div>
                             <div className="field">
-                                <label className="label">Edit Condition of Controller:</label>
+                                <label className="label  has-text-white">Edit Condition of Controller:</label>
                                 <div className="control">
                                     <div className="select">
                                         <select

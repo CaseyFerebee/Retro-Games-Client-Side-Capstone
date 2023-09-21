@@ -13,15 +13,18 @@ export const GameCollectionDetails = () => {
   }, [collectionId]);
 
   const handleDelete = () => {
-    deleteGameCollectionById(collectionId)
-      .then(() => {
-        navigate(`/gamecollections`);
-      });
+    if (window.confirm("Are you sure you want to delete this game from the collection?")) {
+      deleteGameCollectionById(collectionId)
+        .then(() => {
+          window.alert("Game deleted successfully");
+          navigate(`/gamecollections`);
+        })
+    }
   };
 
   return (
     <div className="container">
-      <section className="hero is-medium is-primary">
+      <section className="hero is-medium"  style={{ backgroundColor: 'black' }}>
         <div className="hero-body">
           <div className="container has-text-centered">
             <img
@@ -30,27 +33,27 @@ export const GameCollectionDetails = () => {
               className="game-image is-large"
               style={{ maxWidth: "500px" }}
             />
-            <h1 className="title is-1">{collectionGame?.game?.title}</h1>
-            <p className="subtitle">{collectionGame?.game?.description}</p>
-            <div className="columns">
+            <h1 className="title is-1 has-text-white">{collectionGame?.game?.title}</h1>
+            <p className="subtitle has-text-white">{collectionGame?.game?.description}</p>
+            <div className="columns has-text-white">
               <div className="column">
                 <p>
-                  <strong>Release Date:</strong> {collectionGame?.game?.releaseDate}
+                  <strong className="has-text-white">Release Date:</strong> {collectionGame?.game?.releaseDate}
                 </p>
               </div>
               <div className="column">
                 <p>
-                  <strong>Publisher:</strong> {collectionGame?.game?.publisher}
+                  <strong className="has-text-white">Publisher:</strong> {collectionGame?.game?.publisher}
                 </p>
               </div>
               <div className="column">
                 <p>
-                  <strong>Developer:</strong> {collectionGame?.game?.developer}
+                  <strong className="has-text-white">Developer:</strong> {collectionGame?.game?.developer}
                 </p>
               </div>
             </div>
             <div className="tags is-centered">
-              <span className="tag is-info">Modes of game: {collectionGame?.game?.modes}</span>
+              <span className="tag is-info"  style={{ marginRight: '295px' }}>Modes of game: {collectionGame?.game?.modes}</span>
               <span className="tag is-success">Condition of Game: {collectionGame?.condition?.label}</span>
             </div>
             <button

@@ -18,7 +18,7 @@ export const ConsoleDetails = () => {
 
   return (
     <div className="container">
-      <section className="hero is-primary">
+      <section className="hero is-primary" style={{ backgroundColor: 'black' }}>
         <div className="hero-body">
           <div className="container has-text-centered">
             <img
@@ -27,8 +27,8 @@ export const ConsoleDetails = () => {
               className="console-image is-large"
               style={{ maxWidth: "500px" }}
             />
-            <h1 className="title is-1">{console.name}</h1>
-            <p className="subtitle">{console.description}</p>
+            <h1 className="title is-1  has-text-white">{console.name}</h1>
+            <p className="subtitle ">{console.description}</p>
             <div className="columns">
               <div className="column">
                 <p>

@@ -11,7 +11,7 @@ export const ConsoleCollectionList = () => {
 
   return (
     <div className="container">
-      <h1 className="title is-1">Console Collection</h1>
+      <h1 className="title is-1  has-text-white">Console Collection</h1>
       <div className="columns is-multiline">
         {consoleCollections.map((consoleObject) => (
           <div className="column is-one-third" key={consoleObject.id}>

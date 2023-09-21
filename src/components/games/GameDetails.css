@@ -1,5 +1,5 @@
 .hero.is-primary {
-  background-color: red;
+  background-color: cyan;
 }
 
 .game-image.is-large {
@@ -21,7 +21,11 @@
   text-align: center;
 }
 
-.hero.is-medium.is-primary {
-  background-color: red;
+.background-color{
+  background-color: cyan;
   /* Add your desired red color here */
+}
+
+.is-max-w-200 {
+  max-width: 200px; 
 }

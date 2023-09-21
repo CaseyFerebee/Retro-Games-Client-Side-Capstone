@@ -33,13 +33,14 @@ export const ConsoleCollectionUpdateForm = () => {
         };
 
         updateConsoleCollection(collectionId, updateConsole).then(() => {
+            window.alert("Console collection updated successfully");
             navigate(`/consolecollections/${collectionId}`);
         });
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: "black" }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -47,39 +48,48 @@ export const ConsoleCollectionUpdateForm = () => {
                             alt={consoleData?.console?.name}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">{consoleData?.console?.name}</h1>
-                        <p className="subtitle">{consoleData?.console?.description}</p>
-                        <p className="subtitle">Release Date: {consoleData?.console?.releaseDate}</p>
-                        <div className="field">
-                            <label className="label">Edit Condition of Console:</label>
-                            <div className="control">
-                                <div className="select">
-                                    <select
-                                        value={selectedCondition}
-                                        onChange={handleConditionChange}
-                                        required
-                                    >
-                                        <option value="">Select a condition</option>
-                                        {conditions.map((condition) => (
-                                            <option key={condition.id} value={condition.id}>
-                                                {condition.label}
-                                            </option>
-                                        ))}
-                                    </select>
+                        <h1 className="title is-1 has-text-white">
+                            {consoleData?.console?.name}
+                        </h1>
+                        <p className="subtitle has-text-white">
+                            {consoleData?.console?.description}
+                        </p>
+                        <p className="subtitle has-text-white">
+                            Release Date: {consoleData?.console?.releaseDate}
+                        </p>
+                        <form onSubmit={handleSubmit}>
+                            <div className="field">
+                                <label className="label has-text-white">
+                                    Edit Condition of Console:
+                                </label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select
+                                            value={selectedCondition}
+                                            onChange={handleConditionChange}
+                                            required
+                                        >
+                                            <option value="">Select a condition</option>
+                                            {conditions.map((condition) => (
+                                                <option key={condition.id} value={condition.id}>
+                                                    {condition.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <button
-                                    type="submit"
-                                    className="button is-info is-fullwidth add-game-button"
-                                    onClick={handleSubmit}
-                                >
-                                    Update Console Collection
-                                </button>
+                            <div className="field">
+                                <div className="control">
+                                    <button
+                                        type="submit"
+                                        className="button is-info is-fullwidth add-game-button"
+                                    >
+                                        Update Console Collection
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>
