@@ -35,13 +35,14 @@ export const ConsoleCollectionForm = () => {
         };
 
         addConsoleCollection(createConsoleCollection).then(() => {
+            window.alert("Console added to your collection successfully");
             navigate(`/consolecollections`);
         });
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: 'black' }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -49,38 +50,39 @@ export const ConsoleCollectionForm = () => {
                             alt={consoleData.name}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">{consoleData.name}</h1>
-                        <p className="subtitle">{consoleData.description}</p>
-                        <div className="field">
-                            <label className="label">Condition of Console:</label>
-                            <div className="control">
-                                <div className="select">
-                                    <select
-                                        value={selectedCondition}
-                                        onChange={handleConditionChange}
-                                        required
-                                    >
-                                        <option value="">Select a condition</option>
-                                        {conditions.map((condition) => (
-                                            <option key={condition.id} value={condition.id}>
-                                                {condition.label}
-                                            </option>
-                                        ))}
-                                    </select>
+                        <h1 className="title is-1 has-text-white">{consoleData.name}</h1>
+                        <p className="subtitle has-text-white">{consoleData.description}</p>
+                        <form onSubmit={handleSubmit}>
+                            <div className="field">
+                                <label className="label has-text-white">Condition of Console:</label>
+                                <div className="control">
+                                    <div className="select">
+                                        <select
+                                            value={selectedCondition}
+                                            onChange={handleConditionChange}
+                                            required
+                                        >
+                                            <option value="">Select a condition</option>
+                                            {conditions.map((condition) => (
+                                                <option key={condition.id} value={condition.id}>
+                                                    {condition.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <button
-                                    type="submit"
-                                    className="button is-info is-fullwidth add-game-button"
-                                    onClick={handleSubmit}
-                                >
-                                    Add this Console to your Collection
-                                </button>
+                            <div className="field">
+                                <div className="control">
+                                    <button
+                                        type="submit"
+                                        className="button is-info is-fullwidth add-game-button"
+                                    >
+                                        Add this Console to your Collection
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>

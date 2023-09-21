@@ -4,16 +4,34 @@ import { getAllControllers } from "../../managers/ControllerManager";
 
 export const ControllerList = () => {
   const [controllers, setControllers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     getAllControllers().then((controllerData) => setControllers(controllerData));
   }, []);
 
+  // Filter the controllers based on the search term
+  const filteredControllers = controllers.filter((controllerObject) =>
+    controllerObject.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container">
-      <h1 className="title is-1">Controllers</h1>
+      <h1 className="title is-1  has-text-white">Controllers</h1>
+      <div  className="field" style={{ maxWidth: "300px", margin: "0 auto" }}>
+      <div className="has-text-centered">
+        <input
+          type="text"
+          className="input"
+          placeholder="Search controllers..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      </div>
+
       <div className="columns is-multiline">
-        {controllers.map((controllerObject) => (
+        {filteredControllers.map((controllerObject) => (
           <div className="column is-one-third" key={controllerObject.id}>
             <div className="card">
               <div className="card-image">
@@ -35,4 +53,3 @@ export const ControllerList = () => {
     </div>
   );
 };
-

@@ -36,13 +36,14 @@ export const GameCollectionUpdateForm = () => {
 
         updateGameCollection(collectionId, updateGame)
             .then(() => {
+                window.alert("Game collection updated successfully");
                 navigate(`/gamecollections/${collectionId}`);
             })
     };
 
     return (
         <div className="container">
-            <section className="hero is-medium is-primary">
+            <section className="hero is-medium" style={{ backgroundColor: "black" }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -50,10 +51,10 @@ export const GameCollectionUpdateForm = () => {
                             alt={gameData.game?.title}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">Edit Game Collection</h1>
+                        <h1 className="title is-1 has-text-white">Edit Game Collection</h1>
                         <form onSubmit={handleSubmit}>
-                            <div className="content">
-                                <p className="subtitle">Title: {gameData.game?.title}</p>
+                            <div className="content has-text-white">
+                                <p className="subtitle has-text-white">Title: {gameData.game?.title}</p>
                                 <p>Description: {gameData.game?.description}</p>
                                 <p>Release Date: {gameData.game?.releaseDate}</p>
                                 <p>Publisher: {gameData.game?.publisher}</p>
@@ -61,7 +62,7 @@ export const GameCollectionUpdateForm = () => {
                                 <p>Modes: {gameData.game?.modes}</p>
                             </div>
                             <div className="field">
-                                <label className="label">Condition:</label>
+                                <label className="label has-text-white">Condition of Game:</label>
                                 <div className="control">
                                     <div className="select">
                                         <select

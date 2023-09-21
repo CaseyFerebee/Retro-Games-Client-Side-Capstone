@@ -13,7 +13,7 @@ export const ControllerCollectionList = () => {
 
     return (
         <div className="container">
-            <h1 className="title is-1">Controller Collection</h1>
+            <h1 className="title is-1  has-text-white">Controller Collection</h1>
             <div className="columns is-multiline">
                 {controllerCollections.map((controllerObject) => (
                     <div className="column is-one-third" key={controllerObject.id}>

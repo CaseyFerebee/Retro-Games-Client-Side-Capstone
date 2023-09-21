@@ -13,14 +13,16 @@ export const ControllerCollectionDetails = () => {
   }, [collectionId]);
 
   const handleDelete = () => {
-    deleteControllerCollectionById(collectionId).then(() => {
-      navigate(`/controllercollections`);
-    });
+    if (window.confirm("Are you sure you want to delete this controller from the collection?"))
+      deleteControllerCollectionById(collectionId).then(() => {
+        window.alert("Controller deleted successfully");
+        navigate(`/controllercollections`);
+      });
   };
 
   return (
     <div className="container">
-      <section className="hero is-primary">
+      <section className="hero is-primary" style={{ backgroundColor: 'black' }}>
         <div className="hero-body">
           <div className="container has-text-centered">
             <img

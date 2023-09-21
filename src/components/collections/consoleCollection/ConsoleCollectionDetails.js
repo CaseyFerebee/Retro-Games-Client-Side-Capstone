@@ -13,14 +13,16 @@ export const ConsoleCollectionDetails = () => {
     }, [collectionId]);
 
     const handleDelete = () => {
+        if (window.confirm("Are you sure you want to delete this console from the collection?"))
         deleteConsoleCollectionById(collectionId).then(() => {
+            window.alert("Console deleted successfully");
             navigate(`/consolecollections`);
         });
     };
 
     return (
         <div className="container">
-            <section className="hero is-primary">
+            <section className="hero is-primary" style={{ backgroundColor: 'black' }}>
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <img
@@ -28,7 +30,7 @@ export const ConsoleCollectionDetails = () => {
                             alt={collectionConsole?.console?.name}
                             className="game-image is-large"
                         />
-                        <h1 className="title is-1">{collectionConsole?.console?.name}</h1>
+                        <h1 className="title is-1  has-text-white">{collectionConsole?.console?.name}</h1>
                         <p className="subtitle">{collectionConsole?.console?.description}</p>
                         <div className="columns">
                             <div className="column">
@@ -36,7 +38,7 @@ export const ConsoleCollectionDetails = () => {
                                     <strong>Release Date:</strong> {collectionConsole?.console?.releaseDate}
                                 </p>
                             </div>
-                            <div className="column">
+                            <div className="column ">
                                 <p>
                                     <strong>Condition of Console:</strong> {collectionConsole?.condition?.label}
                                 </p>
