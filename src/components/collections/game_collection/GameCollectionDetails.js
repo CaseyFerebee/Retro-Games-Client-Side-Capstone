@@ -57,7 +57,7 @@ export const GameCollectionDetails = () => {
               <span className="tag is-success">Condition of Game: {collectionGame?.condition?.label}</span>
             </div>
             <button
-              className="button is-warning is-fullwidth add-game-button"
+              className="button is-info is-fullwidth add-game-button"
               onClick={() => { navigate(`/gamecollections/${collectionId}/edit`); }}
             >
               Edit Game in Collection
