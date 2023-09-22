@@ -18,7 +18,6 @@ export const NavBar = ({ token, setToken }) => {
         <a className="navbar-item" href="/games">
         </a>
 
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={showMobileNavbar} ref={hamburger}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -58,8 +57,7 @@ export const NavBar = ({ token, setToken }) => {
                   }}>Logout</button>
                   :
                   <>
-                    <Link to="/register" className="button is-link">Register</Link>
-                    <Link to="/login" className="button is-outlined">Login</Link>
+
                   </>
               }
             </div>
