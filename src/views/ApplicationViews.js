@@ -20,6 +20,7 @@ import { ControllerCollectionUpdateForm } from "../components/collections/contro
 import { ConsoleCollectionDetails } from "../components/collections/consoleCollection/ConsoleCollectionDetails"
 import { ConsoleCollectionForm } from "../components/collections/consoleCollection/ConsoleCollectionForm"
 import { ConsoleCollectionUpdateForm } from "../components/collections/consoleCollection/ConsoleCollectionEditForm"
+import { Home } from "../components/home/Home"
 
 
 export const ApplicationViews = ({ token, setToken }) => {
@@ -28,6 +29,7 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/register" element={<Register setToken={setToken} />} />
             <Route element={<Authorized token={token}  />}>
+                <Route path="/" element={<Home setToken={setToken} />} />
                 <Route path="/games" element={<GameList setToken={setToken} />} />
                 <Route path="/games/:gameId" element={<GameDetails setToken={setToken} />} />
                 <Route path="/controllers" element={<ControllerList setToken={setToken} />} />
