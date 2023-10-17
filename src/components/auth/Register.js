@@ -39,7 +39,6 @@ export const Register = ({setToken}) => {
   return (
     <section className="columns is-centered">
       <form className="column is-two-thirds" onSubmit={handleRegister}>
-      <h1 className="title">Retro Games</h1>
         <p className="subtitle">Create an account</p>
         <div className="field">
           <label className="label">First Name</label>
@@ -86,7 +85,7 @@ export const Register = ({setToken}) => {
           </div>
         </div>
 
-        <div className="field is-grouped">
+        <div className="field is-grouped is-grouped-centered">
           <div className="control">
             <button className="button is-link" type="submit">Submit</button>
           </div>
