@@ -26,11 +26,13 @@
 
 .paragraph {
     flex: 1;
+    color: white
 }
 
 .centered {
     text-align: center;
     font-size: 50px;
+    color: #01009a
 }
 
 .smaller-image {
